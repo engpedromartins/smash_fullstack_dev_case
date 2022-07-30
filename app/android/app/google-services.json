@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904923909009",
+    "project_id": "smash-fullstack-dev-case",
+    "storage_bucket": "smash-fullstack-dev-case.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904923909009:android:e1cab1b866662946d52830",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904923909009-g5i0tfcvfmtgsjbd3u4260ps0lair1b7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWpYW69tPKiao2dqkdurTpWAOpA_TWBIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904923909009-g5i0tfcvfmtgsjbd3u4260ps0lair1b7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
