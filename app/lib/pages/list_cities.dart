@@ -3,8 +3,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class ListCountries extends StatelessWidget {
-  const ListCountries({super.key});
+class ListCities extends StatelessWidget {
+  const ListCities({super.key});
 
   @override
   Widget build(BuildContext context) {

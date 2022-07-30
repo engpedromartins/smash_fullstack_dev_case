@@ -7,14 +7,6 @@ void main() async {
   runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
-  var db = FirebaseFirestore.instance;
-
-  await db.collection("countries").get().then((event) {
-    for (var doc in event.docs) {
-      print("${doc.id} => ${doc.data()}");
-    }
-  });
 }
 
 class MyApp extends StatelessWidget {
