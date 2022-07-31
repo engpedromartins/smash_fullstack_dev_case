@@ -27,9 +27,9 @@ for (let i = 1; i < data.length; i++) {
   count = i
   data[i] = data[i].match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g)
 
-  setDoc(doc(firestore, `countries/${data[i][3]}`), {
+  setDoc(doc(firestore, `cities/${data[i][3]}`), {
     cities: data[i][0],
-    country: data[i][1],
+    country: data[i][1].replace(/"/g, ""),
     subcountry: data[i][2],
   }, { merge: true })
 }
