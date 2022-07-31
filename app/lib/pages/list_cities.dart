@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
-import 'package:app/pages/countries_api.dart';
+import 'package:app/service/countries_api.dart';
 import 'package:flutter/material.dart';
 
 class ListCities extends StatelessWidget {
