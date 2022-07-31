@@ -3,6 +3,7 @@
 import 'package:app/service/countries_api.dart';
 import 'package:flutter/material.dart';
 
+//Pagina secundária da aplicação
 class ListCities extends StatelessWidget {
   const ListCities({super.key, required this.country});
   final String country;
@@ -25,6 +26,7 @@ _appBar() {
   );
 }
 
+//Body da pagina secundária
 _body(country) {
   Future cities = Data.getCities(country);
   return FutureBuilder(
@@ -48,6 +50,7 @@ _body(country) {
   );
 }
 
+//Lista de cidades
 _listCities(context, Map city) {
   return ListTile(
     leading: const Icon(Icons.map),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/nav.dart';
 
+//Pagina principal da aplicação
 class ListCountries extends StatelessWidget {
   const ListCountries({super.key});
 
@@ -26,6 +27,7 @@ _appBar() {
   );
 }
 
+//Body da pagina principal
 _body(context) {
   Future countries = Data.getCountries();
   return FutureBuilder(
@@ -48,6 +50,7 @@ _body(context) {
   );
 }
 
+//Lista de paises
 _listCountries(context, String country) {
   return ListTile(
     leading: const Icon(Icons.map),
