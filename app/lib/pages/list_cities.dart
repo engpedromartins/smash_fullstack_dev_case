@@ -1,16 +1,16 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:app/pages/countries_api.dart';
 import 'package:flutter/material.dart';
 
 class ListCities extends StatelessWidget {
-  const ListCities({super.key});
-
+  const ListCities({super.key, required this.country});
+  final String country;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: _body(),
+      body: _body(country),
     );
   }
 }
@@ -25,131 +25,37 @@ _appBar() {
   );
 }
 
-_body() {
-  // var db = FirebaseFirestore.instance;
-  // var countries = [];
+_body(country) {
+  Future cities = Data.getCities(country);
+  return FutureBuilder(
+    future: cities,
+    builder: (BuildContext context, AsyncSnapshot snapshot) {
+      if (!snapshot.hasData) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      } else {
+        List cities = snapshot.data;
+        print(cities);
+        return ListView.builder(
+          itemCount: cities.length,
+          itemBuilder: (BuildContext context, int index) {
+            return _listCities(context, cities[index]);
+          },
+        );
+      }
+    },
+  );
+}
 
-  // await db.collection("countries").get().then((event) {
-  //   for (var doc in event.docs) {
-  //     print("${doc.id} => ${doc.data()}");
-  //     if (!countries.contains(doc.data()["country"])) {
-  //       countries.add(doc.data()["country"]);
-  //     }
-  //   }
-  // });
-  // print(countries);
-// Filtrar por pais
-//   .collection("countries")
-// .where("country", "==", "Argentina")
-
-  return ListView(children: <Widget>[
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    ),
-    ListTile(
-      leading: Icon(Icons.map),
-      title: Text("ALgum país"),
-      subtitle: Text("Estado"),
-      trailing: Icon(Icons.arrow_forward),
-      onTap: () {
-        print("Argentina");
-      },
-    )
-  ]);
+_listCities(context, Map city) {
+  return ListTile(
+    leading: const Icon(Icons.map),
+    title: Text(city["cities"]),
+    subtitle: Text(city["subcountry"]),
+    trailing: const Icon(Icons.arrow_forward),
+    onTap: () {
+      () => {};
+    },
+  );
 }

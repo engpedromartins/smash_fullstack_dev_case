@@ -27,12 +27,12 @@ _appBar() {
 }
 
 _body(context) {
-  Future countries = GetData.countries();
+  Future countries = Data.getCountries();
   return FutureBuilder(
     future: countries,
     builder: (BuildContext context, AsyncSnapshot snapshot) {
       if (!snapshot.hasData) {
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
         );
       } else {
@@ -50,11 +50,11 @@ _body(context) {
 
 _listCountries(context, String country) {
   return ListTile(
-    leading: Icon(Icons.map),
+    leading: const Icon(Icons.map),
     title: Text(country),
-    trailing: Icon(Icons.arrow_forward),
+    trailing: const Icon(Icons.arrow_forward),
     onTap: () {
-      push(context, ListCities());
+      push(context, ListCities(country: country));
     },
   );
 }
