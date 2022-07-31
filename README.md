@@ -47,3 +47,13 @@ This test aims to assess the candidate's affinity with the main technologies use
 ## Issues and Questions
 
 > feel free to open issues with your questions and suggestions
+
+## Description the project
+
+> The project was made to run on android
+
+> ./App => App code applet font 
+> ./data => csv file to upload to Firestore
+> ./server => Folder containing the node file to upload the data file
+
+> The App was developed in a simple way, so that the user can navigate between folders and have an easy understanding of how it works.
