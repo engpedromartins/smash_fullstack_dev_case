@@ -18,6 +18,7 @@ class ListCities extends StatelessWidget {
 
 _appBar() {
   return AppBar(
+    automaticallyImplyLeading: false,
     backgroundColor: Colors.white,
     toolbarHeight: 120,
     // toolbarOpacity: 0.5,
