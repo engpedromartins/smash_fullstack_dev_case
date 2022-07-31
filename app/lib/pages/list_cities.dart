@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, avoid_print
-
 import 'package:app/service/countries_api.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +37,6 @@ _body(country) {
         );
       } else {
         List cities = snapshot.data;
-        print(cities);
         return ListView.builder(
           itemCount: cities.length,
           itemBuilder: (BuildContext context, int index) {
@@ -55,7 +52,7 @@ _body(country) {
 _listCities(context, Map city) {
   return ListTile(
     leading: const Icon(Icons.map),
-    title: Text(city["cities"]),
+    title: Text(city["city"]),
     subtitle: Text(city["subcountry"]),
     trailing: const Icon(Icons.arrow_forward),
     onTap: () {

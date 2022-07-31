@@ -8,7 +8,11 @@ class Data {
     List countries = [];
 
     var db = FirebaseFirestore.instance;
-    await db.collection("countries").get().then((event) {
+    await db
+        .collection("cities")
+        .orderBy("country", descending: false)
+        .get()
+        .then((event) {
       for (var doc in event.docs) {
         if (!countries.contains(doc.data()["country"])) {
           countries.add(doc.data()["country"]);
@@ -25,7 +29,7 @@ class Data {
 
     var db = FirebaseFirestore.instance;
     await db
-        .collection("countries")
+        .collection("cities")
         .where("country", isEqualTo: country)
         .get()
         .then((event) {
@@ -34,6 +38,7 @@ class Data {
       }
       return event.docs;
     });
+
     return cities;
   }
 }
