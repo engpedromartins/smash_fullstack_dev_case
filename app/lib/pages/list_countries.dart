@@ -52,12 +52,24 @@ _body(context) {
 
 //Lista de paises
 _listCountries(context, String country) {
-  return ListTile(
-    leading: const Icon(Icons.map),
-    title: Text(country),
-    trailing: const Icon(Icons.arrow_forward),
-    onTap: () {
-      push(context, ListCities(country: country));
-    },
+  return Container(
+    padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+    alignment: Alignment.center,
+    decoration: const BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          color: Colors.black,
+          width: 1,
+        ),
+      ),
+    ),
+    child: ListTile(
+      leading: const Icon(Icons.map),
+      title: Text(country, style: const TextStyle(fontSize: 20)),
+      trailing: const Icon(Icons.arrow_forward),
+      onTap: () {
+        push(context, ListCities(country: country));
+      },
+    ),
   );
 }

@@ -50,13 +50,23 @@ _body(country) {
 
 //Lista de cidades
 _listCities(context, Map city) {
-  return ListTile(
-    leading: const Icon(Icons.map),
-    title: Text(city["city"]),
-    subtitle: Text(city["subcountry"]),
-    trailing: const Icon(Icons.arrow_forward),
-    onTap: () {
-      () => {};
-    },
+  return Container(
+    decoration: const BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          color: Colors.black,
+          width: 1,
+        ),
+      ),
+    ),
+    child: ListTile(
+      leading: const Icon(Icons.map),
+      title: Text(city["city"], style: const TextStyle(fontSize: 20)),
+      subtitle: Text(city["subcountry"]),
+      trailing: const Icon(Icons.arrow_forward),
+      onTap: () {
+        () => {};
+      },
+    ),
   );
 }
